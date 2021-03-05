@@ -15,6 +15,11 @@ const Form = ({ currentId, setCurrentId }) => {
 
     }, [post])
 
+    const clear = () => {
+
+        setCurrentId(null)
+        setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: null })
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         if (currentId) {
@@ -25,11 +30,7 @@ const Form = ({ currentId, setCurrentId }) => {
         }
         clear();
     }
-    const clear = () => {
 
-        setCurrentId(null)
-        setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: null })
-    }
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
